@@ -17,6 +17,8 @@ Fresco在GitHub上的项目地址：https://github.com/facebook/fresco
     }
  }
 
+ // Fresco 使用帮助库
+ compile 'com.facebook.fresco.helper:fresco-helper:1.1.8'
  compile 'com.facebook.fresco.helper:fresco-photoview:1.1.6'
 ```
 
@@ -45,6 +47,15 @@ Fresco在GitHub上的项目地址：https://github.com/facebook/fresco
 ```
  Phoenix.init(this); // Context
 ```
+
+加载缩略图
+```
+ Phoenix.with((SimpleDraweeView)itemView)
+        .setWidth(itemDimensionSize)
+        .setHeight(itemDimensionSize)
+        .load(photoInfo.thumbnailUrl);
+```
+fresco-helper在GitHub上的项目地址：https://github.com/hpdx/fresco-helper
 
 带动画的效果打开方式（多图）
 ```
