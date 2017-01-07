@@ -26,8 +26,25 @@ Fresco在GitHub上的项目地址：https://github.com/facebook/fresco
 * 支持单击关闭大图浏览
 * 支持手势缩放功能
 
+[下载示例Apk](https://github.com/hpdx/FrescoPhoto/blob/master/app-debug.apk)
+
+## 示例效果如下：
+
+从网络加载的图片墙
+
+<img src="http://img.blog.csdn.net/20161114234539401" width="320px" />
+
+点击图片墙中的照片后，打开的浏览大图界面
+
+<img src="http://img.blog.csdn.net/20161114234557482" width="320px" />
+
 ## 使用：
 详细细节请查看`PhotoWallActivity`中的示例
+
+初始化
+```
+ Phoenix.init(this); // Context
+```
 
 带动画的效果打开方式（多图）
 ```
@@ -67,15 +84,6 @@ PictureBrowse.newBuilder(PhotoWallActivity.this)
              .start();
 ```
 
-## 示例效果如下：
-
-从网络加载的图片墙
-
-<img src="http://img.blog.csdn.net/20161114234539401" width="320px" />
-
-点击图片墙中的照片后，打开的浏览大图界面
-
-<img src="http://img.blog.csdn.net/20161114234557482" width="320px" />
 
 欢迎提issuse ! 若你觉得还不错，请点Star, 谢谢！
 
