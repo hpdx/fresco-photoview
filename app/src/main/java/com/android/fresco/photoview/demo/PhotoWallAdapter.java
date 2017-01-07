@@ -1,4 +1,4 @@
-package com.android.fresco.demo;
+package com.android.fresco.photoview.demo;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

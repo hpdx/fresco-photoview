@@ -1,4 +1,4 @@
-package com.android.fresco.demo;
+package com.android.fresco.photoview.demo;
 
 import android.database.Cursor;
 import android.os.Bundle;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
-    package="com.android.fresco.demo">
+    package="com.android.fresco.photoview.demo">
 
     <application
         android:allowBackup="true"
@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme"
         tools:replace="android:icon,android:supportsRtl,android:label,android:theme">
 
-        <activity android:name=".MainActivity">
+        <activity android:name="com.android.fresco.photoview.demo.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,9 +19,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".PhotoWallActivity"
+        <activity android:name="com.android.fresco.photoview.demo.PhotoWallActivity"
                   android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-        <activity android:name=".PhotoAlbumActivity"/>
+        <activity android:name="com.android.fresco.photoview.demo.PhotoAlbumActivity"/>
 
     </application>
 
