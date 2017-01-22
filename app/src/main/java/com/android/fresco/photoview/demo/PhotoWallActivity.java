@@ -104,7 +104,7 @@ public class PhotoWallActivity extends AppCompatActivity {
 //                MLog.i("position = " + position);
 //                MLog.i("photos.get(position).thumbnailUrl = " + photos.get(position).thumbnailUrl);
 
-                PictureBrowse.newBuilder(PhotoWallActivity.this)
+                PictureBrowse.newBuilder(PhotoWallActivity.this, PhotoBrowseActivity.class)
                         .setLayoutManager(mLayoutManager)
                         .setPhotoList(photos)
                         .setCurrentPosition(position)

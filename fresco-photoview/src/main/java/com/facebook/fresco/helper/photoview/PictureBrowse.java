@@ -22,15 +22,18 @@ public class PictureBrowse {
     public static final String PHOTO_LIST_KEY = "photo_list";
     public static final String PHOTO_CURRENT_POSITION_KEY = "photo_current_position";
     public static final String PHOTO_IS_ANIMATION_KEY = "isAnimation";
-    public static final String PHOTO_ONLY_ONE_ANIMATION_KEY = "only_one_animation";
+    public static final String PHOTO_ONLY_ONE_KEY = "only_one";
 
     public static Builder newBuilder(Context context) {
         return new Builder(context);
     }
 
+    public static Builder newBuilder(Context context, Class<?> targetClass) {
+        return new Builder(context, targetClass);
+    }
+
     public static class Builder {
         private Intent mIntent;
-        private boolean isAnimation;
         private GridLayoutManager mLayoutManager;
         private ArrayList<String> mThumbnailList;
         private View mThumbnailView;
@@ -39,6 +42,11 @@ public class PictureBrowse {
 
         private Builder(Context context) {
             mIntent = new Intent(context, PictureBrowseActivity.class);
+            mContext = context;
+        }
+
+        private Builder(Context context, Class<?> targetClass) {
+            mIntent = new Intent(context, targetClass);
             mContext = context;
         }
 
@@ -76,7 +84,7 @@ public class PictureBrowse {
             photos.add(photoInfo);
 
             mIntent.putParcelableArrayListExtra(PHOTO_LIST_KEY, photos);
-            mIntent.putExtra(PHOTO_ONLY_ONE_ANIMATION_KEY, true);
+            mIntent.putExtra(PHOTO_ONLY_ONE_KEY, true);
             return this;
         }
 
@@ -87,7 +95,7 @@ public class PictureBrowse {
             photos.add(photoInfo);
 
             mIntent.putParcelableArrayListExtra(PHOTO_LIST_KEY, photos);
-            mIntent.putExtra(PHOTO_ONLY_ONE_ANIMATION_KEY, true);
+            mIntent.putExtra(PHOTO_ONLY_ONE_KEY, true);
             return this;
         }
 
@@ -103,7 +111,6 @@ public class PictureBrowse {
          * 在打开/关闭大图浏览界面时，是否启用动画效果
          */
         public Builder enabledAnimation(boolean isAnimation) {
-            this.isAnimation = isAnimation;
             mIntent.putExtra(PHOTO_IS_ANIMATION_KEY, isAnimation);
 
             if (isAnimation) {

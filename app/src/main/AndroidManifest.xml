@@ -23,6 +23,10 @@
                   android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity android:name="com.android.fresco.photoview.demo.PhotoAlbumActivity"/>
 
+        <activity
+            android:name="com.android.fresco.photoview.demo.PhotoBrowseActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/picture_browse_activity_style"/>
     </application>
 
 </manifest>

@@ -21,24 +21,24 @@ import java.util.Locale;
 public class PictureBrowseActivity extends FragmentActivity
         implements ViewPager.OnPageChangeListener, OnPhotoTapListener, View.OnLongClickListener {
 
-    private int mPhotoIndex;
-    private int mPhotoCount;
-    private PhotoInfo mLookPhoto;
+    protected int mPhotoIndex;
+    protected int mPhotoCount;
+    protected PhotoInfo mLookPhoto;
 
-    private TextView tvPhotoIndex;
-    private MViewPager mViewPager;
+    protected TextView tvPhotoIndex;
+    protected MViewPager mViewPager;
 
-    private PictureBrowseAdapter mAdapter;
-    private ArrayList<PhotoInfo> mItems;
+    protected PictureBrowseAdapter mAdapter;
+    protected ArrayList<PhotoInfo> mItems;
 
-    private TransitionCompat mTransitionCompat;
-    private boolean mFirstExecAnimation;
-    private  boolean mIsAnimation;
+    protected TransitionCompat mTransitionCompat;
+    protected boolean mPhotoOnlyOne;
+    protected  boolean mIsAnimation;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_picture_browse);
+        setContentView(getLayoutResId());
 
         Intent data = getIntent();
         mItems = data.getParcelableArrayListExtra(PictureBrowse.PHOTO_LIST_KEY);
@@ -52,8 +52,8 @@ public class PictureBrowseActivity extends FragmentActivity
         MLog.i("mPhotoIndex = " + mPhotoIndex);
         mIsAnimation = data.getBooleanExtra(PictureBrowse.PHOTO_IS_ANIMATION_KEY, false);
         MLog.i("isAnimation = " + mIsAnimation);
-        mFirstExecAnimation = data.getBooleanExtra(PictureBrowse.PHOTO_ONLY_ONE_ANIMATION_KEY, false);
-        MLog.i("firstExecAnimation = " + mFirstExecAnimation);
+        mPhotoOnlyOne = data.getBooleanExtra(PictureBrowse.PHOTO_ONLY_ONE_KEY, false);
+        MLog.i("mPhotoOnlyOne = " + mPhotoOnlyOne);
 
         setupViews();
 
@@ -64,6 +64,10 @@ public class PictureBrowseActivity extends FragmentActivity
         }
     }
 
+    protected int getLayoutResId() {
+        return R.layout.activity_picture_browse;
+    }
+
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
@@ -71,12 +75,12 @@ public class PictureBrowseActivity extends FragmentActivity
 
     @Override
     public void onPageSelected(int position) {
-        if(mFirstExecAnimation) {
+        if(mPhotoOnlyOne) {
             return;
         }
 
         mPhotoIndex = position;
-        tvPhotoIndex.setText(String.format(Locale.getDefault(), "%d/%d", mPhotoIndex + 1, mPhotoCount));
+        setPhotoIndex();
 
         if (mTransitionCompat != null && mIsAnimation) {
             MLog.i("onPageSelected mPhotoIndex = " + mPhotoIndex);
@@ -103,8 +107,7 @@ public class PictureBrowseActivity extends FragmentActivity
         onBackPressed();
     }
 
-    private void setupViews() {
-        tvPhotoIndex = (TextView) findViewById(R.id.tv_photo_count);
+    protected void setupViews() {
         mViewPager = (MViewPager) findViewById(R.id.vp_picture_browse);
         mViewPager.clearOnPageChangeListeners();
         mViewPager.addOnPageChangeListener(this);
@@ -112,14 +115,22 @@ public class PictureBrowseActivity extends FragmentActivity
         mViewPager.setAdapter(mAdapter);
 
         mPhotoCount = mItems.size();
-        if(mFirstExecAnimation) {
-            findViewById(R.id.rl_photo_bottom).setVisibility(View.GONE);
+        setupBottomViews();
+        mViewPager.setCurrentItem(mPhotoIndex);
+    }
+
+    protected void setupBottomViews() {
+        tvPhotoIndex = (TextView) findViewById(R.id.tv_photo_count);
+        if(mPhotoOnlyOne) {
+            findViewById(R.id.photo_bottom_view).setVisibility(View.GONE);
             tvPhotoIndex.setVisibility(View.GONE);
         } else {
-            tvPhotoIndex.setText(String.format(Locale.getDefault(), "%d/%d", mPhotoIndex + 1, mPhotoCount));
+            setPhotoIndex();
         }
+    }
 
-        mViewPager.setCurrentItem(mPhotoIndex);
+    protected void setPhotoIndex() {
+        tvPhotoIndex.setText(String.format(Locale.getDefault(), "%d/%d", mPhotoIndex + 1, mPhotoCount));
     }
 
     @Override

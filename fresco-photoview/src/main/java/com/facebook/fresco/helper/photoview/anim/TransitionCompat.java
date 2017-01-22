@@ -57,6 +57,7 @@ public class TransitionCompat {
             thumbnailScaleUpAnimation(viewOptions, false);
         } else {
             mActivity.finish();
+            mActivity.overridePendingTransition(0, 0);
         }
     }
 
