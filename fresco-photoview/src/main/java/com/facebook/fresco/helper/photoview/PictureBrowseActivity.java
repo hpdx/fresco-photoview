@@ -98,7 +98,9 @@ public class PictureBrowseActivity extends FragmentActivity
         if (mTransitionCompat != null && mIsAnimation) {
             mTransitionCompat.finishAfterTransition();
         } else {
-            super.onBackPressed();
+//            super.onBackPressed();
+            finish();
+            overridePendingTransition(0, 0);
         }
     }
 
