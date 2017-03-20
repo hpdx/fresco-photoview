@@ -74,6 +74,7 @@ public class PhotoWallAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             Phoenix.with((SimpleDraweeView)itemView)
                     .setWidth(itemDimensionSize)
                     .setHeight(itemDimensionSize)
+//                    .setNeedBlur(true)
                     .load(photoInfo.thumbnailUrl);
         }
     }

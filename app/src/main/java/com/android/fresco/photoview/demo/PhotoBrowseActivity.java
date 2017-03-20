@@ -6,6 +6,7 @@ import com.anbetter.log.MLog;
 import com.facebook.fresco.helper.photoview.PictureBrowseActivity;
 
 /**
+ * 查看大图
  * Created by android_ls on 2017/1/20.
  */
 
