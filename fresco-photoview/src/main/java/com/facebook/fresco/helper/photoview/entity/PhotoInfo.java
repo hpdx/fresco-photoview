@@ -49,4 +49,14 @@ public class PhotoInfo implements Parcelable {
             return new PhotoInfo[size];
         }
     };
+
+    @Override
+    public String toString() {
+        return "PhotoInfo{" +
+                "photoId='" + photoId + '\'' +
+                ", originalUrl='" + originalUrl + '\'' +
+                ", thumbnailUrl='" + thumbnailUrl + '\'' +
+                '}';
+    }
+
 }

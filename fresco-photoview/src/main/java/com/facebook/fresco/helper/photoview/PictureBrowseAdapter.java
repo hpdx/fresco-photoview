@@ -87,7 +87,9 @@ public class PictureBrowseAdapter extends PagerAdapter {
             photoDraweeView.setOnViewTapListener(new OnViewTapListener() {
                 @Override
                 public void onViewTap(View view, float x, float y) {
-
+                    if (mOnPhotoTapListener != null) {
+                        mOnPhotoTapListener.onPhotoTap(view, x, y);
+                    }
                 }
             });
         }

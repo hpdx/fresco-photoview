@@ -140,6 +140,32 @@ public class PictureBrowseActivity extends FragmentActivity
         return false;
     }
 
+    public ArrayList<PhotoInfo> getItems() {
+        return mItems;
+    }
+
+    public PhotoInfo getItem(int position) {
+        if (mItems != null && mItems.size() > 0) {
+            return mItems.get(position);
+        }
+        return null;
+    }
+
+    /**
+     * 获取当前PhotoInfo在集合中Position
+     * @return
+     */
+    public int getCurrentPosition() {
+       return mPhotoIndex;
+    }
+
+    public PhotoInfo getCurrentPhotoInfo() {
+        if (mItems != null && mItems.size() > 0) {
+            return mItems.get(mPhotoIndex);
+        }
+        return null;
+    }
+
     @Override
     protected void onDestroy() {
         if (mLookPhoto != null) {

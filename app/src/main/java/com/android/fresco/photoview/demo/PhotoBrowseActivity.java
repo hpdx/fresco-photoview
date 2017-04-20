@@ -4,6 +4,7 @@ import android.view.View;
 
 import com.anbetter.log.MLog;
 import com.facebook.fresco.helper.photoview.PictureBrowseActivity;
+import com.facebook.fresco.helper.photoview.entity.PhotoInfo;
 
 /**
  * 查看大图
@@ -24,10 +25,23 @@ public class PhotoBrowseActivity extends PictureBrowseActivity {
             @Override
             public void onClick(View v) {
                 MLog.i("用户点击了删除按钮");
+                MLog.i("mPhotoIndex = " + mPhotoIndex);
+
+                PhotoInfo photoInfo = mItems.get(mPhotoIndex);
+                MLog.i("originalUrl = " + photoInfo.originalUrl);
 
             }
         });
     }
 
+    @Override
+    public boolean onLongClick(View view) {
+        MLog.i("currentPosition = " + getCurrentPosition());
+
+        PhotoInfo photoInfo = getCurrentPhotoInfo();
+        MLog.i("current originalUrl = " + photoInfo.originalUrl);
+
+        return super.onLongClick(view);
+    }
 
 }
