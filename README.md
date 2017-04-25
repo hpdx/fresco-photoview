@@ -3,7 +3,7 @@
 
 Fresco在GitHub上的项目地址：https://github.com/facebook/fresco
 
-目前是基于Fresco `1.1.0`这个版本。
+目前是基于Fresco `1.3.0`这个版本。
 
 在使用到fresco-helper库的Module中的build.gradle文件里，添加以下依赖：
 ```
@@ -18,8 +18,8 @@ Fresco在GitHub上的项目地址：https://github.com/facebook/fresco
  }
 
  // Fresco 使用帮助库
- compile 'com.facebook.fresco.helper:fresco-helper:1.2.4'
- compile 'com.facebook.fresco.helper:fresco-photoview:1.2.1'
+ compile 'com.facebook.fresco.helper:fresco-helper:1.3.0'
+ compile 'com.facebook.fresco.helper:fresco-photoview:1.2.2'
 ```
 
 ## 目前支持
