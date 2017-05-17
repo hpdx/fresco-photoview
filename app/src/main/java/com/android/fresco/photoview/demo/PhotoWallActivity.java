@@ -36,6 +36,20 @@ public class PhotoWallActivity extends AppCompatActivity {
         setContentView(R.layout.activity_photo_wall);
 
         String[] images = {
+                "http://ww1.sinaimg.cn/large/610dc034ly1ffmwnrkv1hj20ku0q1wfu.jpg",
+                "http://7xi8d6.com1.z0.glb.clouddn.com/2017-05-12-18380140_455327614813449_854681840315793408_n.jpg",
+                "http://7xi8d6.com1.z0.glb.clouddn.com/2017-05-11-18380166_305443499890139_8426655762360565760_n.jpg",
+                "http://ww1.sinaimg.cn/large/61e74233ly1feuogwvg27j20p00zkqe7.jpg",
+                "http://7xi8d6.com1.z0.glb.clouddn.com/2017-04-25-13651793_897557617014845_571817176_n.jpg",
+                "https://a-ssl.duitang.com/uploads/item/201701/19/20170119220617_WwTh8.jpeg",
+                "https://b-ssl.duitang.com/uploads/item/201705/14/20170514095630_L5aEZ.jpeg",
+                "https://b-ssl.duitang.com/uploads/item/201505/23/20150523091525_n2xkL.jpeg",
+                "https://a-ssl.duitang.com/uploads/item/201503/28/20150328132442_nRNSQ.jpeg",
+                "http://img.hb.aicdn.com/d6fea1e327ba8ed64fc905895b16ab410f7efbb411eab6-jbGElU_fw658",
+                "https://b-ssl.duitang.com/uploads/item/201608/28/20160828190814_fucBX.jpeg",
+                "https://b-ssl.duitang.com/uploads/item/201610/08/20161008040554_rAwev.jpeg",
+                "https://b-ssl.duitang.com/uploads/item/201701/02/20170102174129_vJ2Ns.thumb.700_0.jpeg",
+                "https://b-ssl.duitang.com/uploads/item/201504/04/20150404H0402_d8S3E.thumb.700_0.jpeg",
                 "http://g.hiphotos.baidu.com/imgad/pic/item/c75c10385343fbf22c362d2fb77eca8065388fa0.jpg",
                 "http://ww3.sinaimg.cn/large/610dc034jw1f9nuk0nvrdj20u011haci.jpg",
                 "http://ww4.sinaimg.cn/large/610dc034jw1f9mp3xhjdhj20u00u0ta9.jpg",
@@ -93,6 +107,46 @@ public class PhotoWallActivity extends AppCompatActivity {
             photoInfo.thumbnailUrl = images[i];
             data.add(photoInfo);
         }
+
+        PhotoInfo photoInfo = new PhotoInfo();
+        String url = "http://tupian.enterdesk.com/2016/dqd/03/1401/11.jpg";
+        photoInfo.originalUrl = url;
+        photoInfo.thumbnailUrl = url;
+        photoInfo.width = 1416;
+        photoInfo.height = 885;
+        data.add(photoInfo);
+
+        photoInfo = new PhotoInfo();
+        url = "http://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490349606605&di=5510cf624bce949b977ba005f1dbaf84&imgtype=0&src=http%3A%2F%2Fattach.bbs.letv.com%2Fforum%2F201607%2F02%2F195153fz3mxtd50d0qjtz9.jpg";
+        photoInfo.originalUrl = url;
+        photoInfo.thumbnailUrl = url;
+        photoInfo.width = 3840;
+        photoInfo.height = 2160;
+        data.add(photoInfo);
+
+        photoInfo = new PhotoInfo();
+        url = "http://img2.3lian.com/2014/f6/192/d/112.jpg";
+        photoInfo.originalUrl = url;
+        photoInfo.thumbnailUrl = url;
+        photoInfo.width = 1573;
+        photoInfo.height = 885;
+        data.add(photoInfo);
+
+        photoInfo = new PhotoInfo();
+        url = "http://img5q.duitang.com/uploads/item/201402/24/20140224212510_eQRG5.thumb.700_0.jpeg";
+        photoInfo.originalUrl = url;
+        photoInfo.thumbnailUrl = url;
+        photoInfo.width = 700;
+        photoInfo.height = 7633;
+        data.add(photoInfo);
+
+        photoInfo = new PhotoInfo();
+        url = "http://i3.sinaimg.cn/cj/roll/20081102/38082dbe379d1c04d0e7f0dc28134657.jpg";
+        photoInfo.originalUrl = url;
+        photoInfo.thumbnailUrl = url;
+        photoInfo.width = 776;
+        photoInfo.height = 1240;
+        data.add(photoInfo);
 
         mRecyclerView = (RecyclerView)findViewById(R.id.rv_photo_wall);
         mLayoutManager = new GridLayoutManager(this, 4);

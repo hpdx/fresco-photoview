@@ -1,2 +1,2 @@
 include ':app',
-         ':fresco-photoview'
+        ':fresco-photoview'

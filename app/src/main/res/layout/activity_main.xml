@@ -14,6 +14,11 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin">
 
+        <TextView
+            android:id="@+id/tv_cache_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
         <Button
             android:id="@+id/btn_open_photo_wall"
             android:layout_width="wrap_content"
@@ -27,6 +32,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:text="显示从本地相册加载的图片墙"/>
+
+        <Button
+            android:id="@+id/btn_get_cache_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="获取已使用的缓存大小"/>
+
+        <Button
+            android:id="@+id/btn_clear_memory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="清除所有图片缓存"/>
 
     </LinearLayout>
 </ScrollView>

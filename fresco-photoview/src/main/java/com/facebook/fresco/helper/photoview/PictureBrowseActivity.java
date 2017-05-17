@@ -113,7 +113,7 @@ public class PictureBrowseActivity extends FragmentActivity
         mViewPager = (MViewPager) findViewById(R.id.vp_picture_browse);
         mViewPager.clearOnPageChangeListeners();
         mViewPager.addOnPageChangeListener(this);
-        mAdapter = new PictureBrowseAdapter(mItems, this, this);
+        mAdapter = new PictureBrowseAdapter(this, mItems, this, this);
         mViewPager.setAdapter(mAdapter);
 
         mPhotoCount = mItems.size();

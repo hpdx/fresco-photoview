@@ -17,6 +17,22 @@ public class PhotoInfo implements Parcelable {
 
     public String thumbnailUrl;
 
+    public int width;
+
+    public int height;
+
+    public PhotoInfo() {
+    }
+
+    @Override
+    public String toString() {
+        return "PhotoInfo{" +
+                "photoId='" + photoId + '\'' +
+                ", originalUrl='" + originalUrl + '\'' +
+                ", thumbnailUrl='" + thumbnailUrl + '\'' +
+                '}';
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -27,15 +43,16 @@ public class PhotoInfo implements Parcelable {
         dest.writeString(this.photoId);
         dest.writeString(this.originalUrl);
         dest.writeString(this.thumbnailUrl);
-    }
-
-    public PhotoInfo() {
+        dest.writeInt(this.width);
+        dest.writeInt(this.height);
     }
 
     protected PhotoInfo(Parcel in) {
         this.photoId = in.readString();
         this.originalUrl = in.readString();
         this.thumbnailUrl = in.readString();
+        this.width = in.readInt();
+        this.height = in.readInt();
     }
 
     public static final Creator<PhotoInfo> CREATOR = new Creator<PhotoInfo>() {
@@ -49,14 +66,4 @@ public class PhotoInfo implements Parcelable {
             return new PhotoInfo[size];
         }
     };
-
-    @Override
-    public String toString() {
-        return "PhotoInfo{" +
-                "photoId='" + photoId + '\'' +
-                ", originalUrl='" + originalUrl + '\'' +
-                ", thumbnailUrl='" + thumbnailUrl + '\'' +
-                '}';
-    }
-
 }
