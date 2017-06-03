@@ -17,7 +17,7 @@ Fresco在GitHub上的项目地址：https://github.com/facebook/fresco
     }
  }
 
- compile 'com.facebook.fresco.helper:fresco-photoview:1.2.5'
+ compile 'com.facebook.fresco.helper:fresco-photoview:1.2.6'
 ```
 
 ## 目前支持
@@ -25,6 +25,8 @@ Fresco在GitHub上的项目地址：https://github.com/facebook/fresco
 * 支持双击放大效果
 * 支持单击关闭大图浏览
 * 支持手势缩放功能
+* 支持屏蔽长按事件
+* 支持扩展，可以自定义浏览大图的UI风格
 
 [下载示例Apk](https://github.com/hpdx/FrescoPhoto/blob/master/app-debug.apk)
 
@@ -91,6 +93,56 @@ String originalUrl = photos.get(position).originalUrl;
 PictureBrowse.newBuilder(PhotoWallActivity.this)
              .setOriginalUrl(originalUrl)
              .start();
+```
+
+屏蔽长按事件
+```
+PictureBrowse.newBuilder(PhotoWallActivity.this, PhotoBrowseActivity.class)
+             .setLayoutManager(mLayoutManager)
+             .setPhotoList(photos)
+             .setCurrentPosition(position)
+             .enabledAnimation(true)
+             .toggleLongClick(false) // 屏蔽长按事件
+             .start();
+```
+
+支持扩展，可以自定义浏览大图的UI风格
+```
+public class PhotoBrowseActivity extends PictureBrowseActivity {
+
+    @Override
+    protected int getLayoutResId() {
+        return R.layout.activity_photo_browse;
+    }
+
+    @Override
+    protected void setupViews() {
+        super.setupViews();
+        findViewById(R.id.rl_top_deleted).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MLog.i("用户点击了删除按钮");
+                MLog.i("mPhotoIndex = " + mPhotoIndex);
+
+                PhotoInfo photoInfo = mItems.get(mPhotoIndex);
+                MLog.i("originalUrl = " + photoInfo.originalUrl);
+
+            }
+        });
+    }
+
+    @Override
+    public boolean onLongClick(View view) {
+        MLog.i("currentPosition = " + getCurrentPosition());
+
+        PhotoInfo photoInfo = getCurrentPhotoInfo();
+        MLog.i("current originalUrl = " + photoInfo.originalUrl);
+
+        return super.onLongClick(view);
+    }
+
+}
+
 ```
 
 

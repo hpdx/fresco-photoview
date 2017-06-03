@@ -163,6 +163,7 @@ public class PhotoWallActivity extends AppCompatActivity {
                         .setPhotoList(photos)
                         .setCurrentPosition(position)
                         .enabledAnimation(true)
+                        .toggleLongClick(false)
                         .start();
 
 //                PictureBrowse.newBuilder(PhotoWallActivity.this)

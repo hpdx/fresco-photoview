@@ -23,6 +23,7 @@ public class PictureBrowse {
     public static final String PHOTO_CURRENT_POSITION_KEY = "photo_current_position";
     public static final String PHOTO_IS_ANIMATION_KEY = "isAnimation";
     public static final String PHOTO_ONLY_ONE_KEY = "only_one";
+    public static final String PHOTO_LONGCLICK_KEY = "onLongClick";
 
     public static Builder newBuilder(Context context) {
         return new Builder(context);
@@ -104,6 +105,16 @@ public class PictureBrowse {
          */
         public Builder setCurrentPosition(int position) {
             mIntent.putExtra(PHOTO_CURRENT_POSITION_KEY, position);
+            return this;
+        }
+
+        /**
+         * 是否响应长按事件
+         * @param onLongClick
+         * @return
+         */
+        public Builder toggleLongClick(boolean onLongClick) {
+            mIntent.putExtra(PHOTO_LONGCLICK_KEY, onLongClick);
             return this;
         }
 

@@ -33,7 +33,8 @@ public class PictureBrowseActivity extends FragmentActivity
 
     protected TransitionCompat mTransitionCompat;
     protected boolean mPhotoOnlyOne;
-    protected  boolean mIsAnimation;
+    protected boolean mIsAnimation;
+    protected boolean mLongClick;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,8 @@ public class PictureBrowseActivity extends FragmentActivity
         MLog.i("isAnimation = " + mIsAnimation);
         mPhotoOnlyOne = data.getBooleanExtra(PictureBrowse.PHOTO_ONLY_ONE_KEY, false);
         MLog.i("mPhotoOnlyOne = " + mPhotoOnlyOne);
+        mLongClick = data.getBooleanExtra(PictureBrowse.PHOTO_LONGCLICK_KEY, true);
+        MLog.i("mLongClick = " + mLongClick);
 
         setupViews();
 
@@ -113,7 +116,12 @@ public class PictureBrowseActivity extends FragmentActivity
         mViewPager = (MViewPager) findViewById(R.id.vp_picture_browse);
         mViewPager.clearOnPageChangeListeners();
         mViewPager.addOnPageChangeListener(this);
-        mAdapter = new PictureBrowseAdapter(this, mItems, this, this);
+
+        if(mLongClick) {
+            mAdapter = new PictureBrowseAdapter(this, mItems, this, this);
+        } else {
+            mAdapter = new PictureBrowseAdapter(this, mItems, this, null);
+        }
         mViewPager.setAdapter(mAdapter);
 
         mPhotoCount = mItems.size();
@@ -137,6 +145,7 @@ public class PictureBrowseActivity extends FragmentActivity
 
     @Override
     public boolean onLongClick(View view) {
+        MLog.i("onLongClick");
         return false;
     }
 
