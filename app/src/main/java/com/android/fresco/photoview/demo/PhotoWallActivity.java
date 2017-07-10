@@ -97,6 +97,7 @@ public class PhotoWallActivity extends AppCompatActivity {
                 "http://ww3.sinaimg.cn/large/610dc034jw1f7d97id9mbj20u00u0q4g.jpg",
                 "http://ww4.sinaimg.cn/large/610dc034jw1f7cmpd95iaj20u011hjtt.jpg",
                 "http://ww2.sinaimg.cn/large/610dc034gw1f7bm1unn17j20u00u00wm.jpg",
+                "https://f10.baidu.com/it/u=1733621832,446747761&fm=76",
                 "http://ww3.sinaimg.cn/large/610dc034jw1f8mssipb9sj20u011hgqk.jpg"
         };
 

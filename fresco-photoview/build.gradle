@@ -4,7 +4,7 @@ apply plugin: 'com.jfrog.bintray'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion "25.0.3"
 
     defaultConfig {
         minSdkVersion 16
@@ -25,13 +25,13 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:support-v4:25.3.1'
     compile 'com.android.support:recyclerview-v7:25.3.1'
-    compile 'com.facebook.fresco.helper:fresco-helper:1.5.0'
+    compile 'com.facebook.fresco.helper:fresco-helper:' + rootProject.ext.frescoHelperVersion
 }
 
 // Maven Group ID
 group = "com.facebook.fresco.helper"
 // library的版本号，后面每次更新都需要更改这个值
-version = "1.2.6"
+version = rootProject.ext.frescoPhotoview
 
 // 生成jar包的task
 task sourcesJar(type: Jar) {
@@ -63,13 +63,13 @@ install {
         pom.project {
             name 'fresco-photoview'
             description '基于Fresco的大图浏览库'
-            url 'https://github.com/hpdx/fresco-helper'
+            url 'https://github.com/hpdx/fresco-photoview'
             inceptionYear '2016'
 
             packaging 'aar'
             groupId 'com.facebook.fresco.helper'
             artifactId 'fresco-photoview'
-            version '1.2.6'
+            version rootProject.ext.frescoPhotoview
 
             licenses {
                 license {
@@ -80,9 +80,9 @@ install {
             }
 
             scm {
-                connection 'https://github.com/hpdx/fresco-helper.git' // Git仓库地址。
-                developerConnection 'https://github.com/hpdx/fresco-helper.git' // Git仓库地址。
-                url 'https://github.com/hpdx/fresco-helper' // 项目主页。
+                connection 'https://github.com/hpdx/fresco-photoview.git' // Git仓库地址。
+                developerConnection 'https://github.com/hpdx/fresco-photoview.git' // Git仓库地址。
+                url 'https://github.com/hpdx/fresco-photoview' // 项目主页。
             }
 
             developers {
@@ -109,8 +109,8 @@ bintray {
         name = 'fresco-photoview'
         userOrg = user
         licenses = ['Apache-2.0']
-        websiteUrl = 'https://github.com/hpdx/fresco-helper'
-        vcsUrl = 'https://github.com/hpdx/fresco-helper.git'
+        websiteUrl = 'https://github.com/hpdx/fresco-photoview'
+        vcsUrl = 'https://github.com/hpdx/fresco-photoview.git'
         publish = true
         publicDownloadNumbers = true
     }
