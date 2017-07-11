@@ -29,6 +29,6 @@ task clean(type: Delete) {
 }
 
 ext {
-    frescoHelperVersion = '1.5.5'
-    frescoPhotoview = '1.3.0'
+    frescoHelperVersion = '1.6.0'
+    frescoPhotoview = '1.3.1'
 }

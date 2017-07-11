@@ -17,7 +17,7 @@ Fresco在GitHub上的项目地址：https://github.com/facebook/fresco
     }
  }
 
- compile 'com.facebook.fresco.helper:fresco-photoview:1.3.0'
+ compile 'com.facebook.fresco.helper:fresco-photoview:1.3.1'
 ```
 
 ## 目前支持
