@@ -53,10 +53,20 @@ public class PhotoAlbumActivity extends AppCompatActivity implements LoaderManag
 //                MLog.i("position = " + position);
 //                MLog.i("photos.get(position).thumbnailUrl = " + photos.get(position).thumbnailUrl);
 
-                PictureBrowse.newBuilder(PhotoAlbumActivity.this)
-                        .setPhotoList(photos)
-                        .setCurrentPosition(position)
-                        .start();
+                if(photos.size() > 100) {
+                    ArrayList<PhotoInfo> data = new ArrayList<>();
+                    data.add(photos.get(position));
+
+                    PictureBrowse.newBuilder(PhotoAlbumActivity.this)
+                            .setPhotoList(data)
+                            .setCurrentPosition(position)
+                            .start();
+                } else {
+                    PictureBrowse.newBuilder(PhotoAlbumActivity.this)
+                            .setPhotoList(photos)
+                            .setCurrentPosition(position)
+                            .start();
+                }
             }
         });
         mRecyclerView.setAdapter(mPhotoWallAdapter);
